@@ -1,6 +1,6 @@
 App.js
 
-'''js
+```js
 import axios from "axios";
 import { useState } from "react";
 
@@ -70,52 +70,12 @@ export default function App() {
     </>
   );
 }
+```
 
-'''
 ---
 
 FileUpload.jsx
 
-'''js
-import axios from "axios";
-import { useState } from "react";
-
-function FileUpload() {
-  const [file, setFile] = useState(null);
-
-  const onChange = (e) => setFile(e.target.files[0]);
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData();
-    formData.append("file", file);
-
-    const response = await axios.post("https://yo232fake.io", formData);
-    console.log(response);
-  };
-
-  return (
-    <>
-      <form onSubmit={onSubmit}>
-        <label htmlFor="file">Image Upload</label>
-        <br />
-        <input type="file" id="file" accept=".png,.jpg" onChange={onChange} />
-        <br />
-        <br />
-        <button>Upload file</button>
-      </form>
-    </>
-  );
-}
-
-export default FileUpload;
-
-'''
-
---Upload Files--
-
-FileUpload.jsx
 ```js
 import axios from "axios";
 import { useState } from "react";
@@ -150,6 +110,44 @@ function FileUpload() {
 }
 
 export default FileUpload;
-
 ```
 
+--Upload Files--
+
+FileUpload.jsx
+
+```js
+import axios from "axios";
+import { useState } from "react";
+
+function FileUpload() {
+  const [file, setFile] = useState(null);
+
+  const onChange = (e) => setFile(e.target.files[0]);
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    const response = await axios.post("https://yo232fake.io", formData);
+    console.log(response);
+  };
+
+  return (
+    <>
+      <form onSubmit={onSubmit}>
+        <label htmlFor="file">Image Upload</label>
+        <br />
+        <input type="file" id="file" accept=".png,.jpg" onChange={onChange} />
+        <br />
+        <br />
+        <button>Upload file</button>
+      </form>
+    </>
+  );
+}
+
+export default FileUpload;
+```
